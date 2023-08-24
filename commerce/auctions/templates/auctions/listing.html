@@ -1,0 +1,127 @@
+{% extends 'auctions/layout.html' %}
+
+{% load bootstrap4%}
+
+{% block body %}
+<h1>Listing: {{listing.title|title}}</h1>
+<p><a href="{% url 'auctions:addwatchlist' listing.id%}"><span class="badge bg-secondary text-light">watchlist</span></a></p>
+{% if listing.winner is not None%}
+    <div>
+                {% if user == listing.winner %}
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Well done!</h4>
+                    <p> You have won this Auction. The details for the payment is being processed
+                        <hr>
+                    <p class="mb-0">We will get in touch with you shortly.</p>
+                </div>   
+
+                {% else %}         
+                <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading">Sorry!</h4>
+                    <p> You have lost this auction!
+                        <hr>
+                    <p class="mb-0">Come back stronger next time.</p>
+                </div>   
+                    
+                {% endif %}
+        </div>
+{% endif %}
+    
+<div>
+    {% if listing.listing_pic %}
+    <img class="img-fluid" src="{{listing.listing_pic.url}}" alt="The image of {{listing.title}} goes here." style="max-height: 14cm;">
+    {% else %}
+    
+        <p class="display-4"> There is no picture for {{listing.title|title}}<p>
+    {% endif %}
+
+
+    <p style="font-size:large">{{listing.description|title|default:""}}</p>
+    <h4>{% autoescape on %}$ {{listing_bid|floatformat:"2"}}{% endautoescape %}</h4>
+
+</div>
+
+<div>
+{% if listing.winner is None  %}
+
+    <small>{{listing.bids.all|length}} bid{{listing.bids.all|length|pluralize}}. Your bid is the current bid</small>
+
+{% if bidmessage %}
+    
+    <div class="alert alert-warning">
+        <strong>{{ bidmessage|escape }}</strong>
+    </div>
+{% endif %}
+    <form action="{% url 'auctions:bid' listing.id%}" method="POST">
+        {% csrf_token %}
+        {%bootstrap_form bidform%}
+
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+</div>
+
+{% else %}
+
+<small>There were {{listing.bids.all|length}} bid{{listing.bids.all|length|pluralize}}.</small>
+{% endif %}
+    
+
+<div class="mt-4">
+    <h2 class="display-4">Details</h2>
+    <ul>
+        <li class="lead">Listed by: {{listing.user.username|title}}</li>
+        <li class="lead">Category: {{listing.category|default:"No Category Listed"}}</li>
+
+    </ul>
+</div>
+
+{% if user == listing.user and listing.winner is None %}
+
+<div>
+    <form action="{% url 'auctions:closeauction' listing.id%}">
+        <input class="btn btn-danger mt-4" type="submit" value="Close Auction">
+    </form>
+</div>
+{% endif %}
+
+
+    <h3 class="mt-5 display-4">Comments</h3>
+    <div class="mb-4">
+    <form action="{% url 'auctions:comment' listing.id%}" method="POST">
+        {% csrf_token %}
+        {%bootstrap_form commentform%}
+        <input class="btn btn-lg btn-primary" type="submit" value="Submit">
+    </form>
+</div>
+
+<div style="margin-right: 800px;">
+    {% for comment in listing.comments.all %}
+        <div class="card row mr-4 ml-0 mb-4 mt-4 rounded" >
+            <div class="col-sm-12 col-md-12 col-12 pb-4">
+                <div class="comment mt-4 text-justify"> 
+                    <div><span class="text-primary font-weight-bold">{{comment.user.username}}</span>    <small class="text-muted "> • {{comment.date_added|timesince}} ago</small></div>  <hr> 
+                   
+                    <div>
+                        {{comment.comment}}
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>    
+    {%empty%}
+        <div class="row">
+            <div class="col-sm-5 col-md-6 col-12 pb-4">
+                
+                <div class="comment mt-4  text-justify float-left"> 
+                    <div >
+                        No Comments yet
+                    </div>
+                </div>
+        </div>
+    {% endfor %}
+</div>
+
+
+
+{% endblock body %}

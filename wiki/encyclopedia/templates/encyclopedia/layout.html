@@ -1,0 +1,41 @@
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        {%bootstrap_css%}
+        {%bootstrap_javascript jquery='full'%}
+
+    </head>
+    <body style="height: 100%;" >
+        <div class="row container-fluid" style="height: 100vh;" >
+            <div class="sidebar col-lg-2 col-md-3 border" style="width:100%" >
+                <h1 class="bg-warning display-2" style="width:fit-content">Wiki</h1>
+                
+                <form action="{% url 'search' %}" method="POST">
+                    {% csrf_token %}
+                    <input class="search " type="text" name="q" placeholder="Search Encyclopedia">
+                    
+                </form>
+                <div>
+                    <a href="{% url 'index' %}">Home</a>
+                </div>
+                <div>
+                    <a href="{% url 'createentry' %}">Create New Page</a>
+                </div>
+                <div>
+                    <a href="{% url 'randompage' %}">Random Page</a>
+                </div>
+                {% block nav %}
+                {% endblock nav %}
+            </div>
+            <div class="main col-lg-10 col-md-9">
+                {% block body %}
+                {% endblock body %}
+            </div>
+        </div>
+
+    </body>
+</html>

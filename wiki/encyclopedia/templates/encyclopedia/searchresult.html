@@ -1,0 +1,22 @@
+{% extends 'encyclopedia/layout.html' %}
+
+{% block title %}
+    Search Results for: {{searchkey}}
+    {% endblock title %}
+    {% block body %}
+    <h1 class="display-3">Search Results for: "{{searchkey}}"</h1>
+    <ul>
+        {% for entry in searchlist %}
+        <div class="card w-75 m-4">
+            <a href="{% url 'entrypage' entry.0%}">
+                <div class="card-body">
+                  <h5 class="card-title">{{entry.0}}</h5>
+                  <small class="card-text text-muted">{{entry.1|slice:100}}...</small>
+                </div>
+            </a>
+          </div>
+    {%empty%}
+            <p class="lead">Sorry there are no entries with this title</p>
+    {% endfor %}
+</ul>
+{% endblock body %}

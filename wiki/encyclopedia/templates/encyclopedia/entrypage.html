@@ -1,0 +1,20 @@
+{% extends 'encyclopedia/layout.html' %}
+
+
+{% block body %}
+    <div class="container-fluid  rounded m-4" >
+        {% if  entry is None%}
+        <h1>Error</h1>
+        <p>
+            The page you have requested doesn't exist.
+        </p>
+        {% else %}
+        <div class="mt-4">
+            <a href="{% url 'editpage' title%}"><button class="btn border border-primary text-primary " type="button">Edit entry</button></a>
+        </div>
+        <p>
+            {{entry|safe}}
+        </p>
+        {% endif %}
+    </div>
+{% endblock body %}

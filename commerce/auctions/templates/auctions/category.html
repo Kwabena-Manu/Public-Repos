@@ -1,0 +1,19 @@
+{% extends 'auctions/layout.html' %}
+
+{% block body %}
+    
+
+        <h1 class="display-3 mb-4">
+            {{category.name}}
+        </h1>
+        <ul>
+            {% for listing in catList %}
+                
+                    <li><a href="{% url 'auctions:listing' listing.id%}">{{listing.title|title}} </a></li>
+                
+            
+            {% empty %}
+                There are not listings under this category.
+            {% endfor %}
+        </ul>
+{% endblock body %}

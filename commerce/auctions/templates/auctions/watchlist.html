@@ -1,0 +1,68 @@
+{% extends 'auctions/layout.html' %}
+
+{% load bootstrap4 %}
+
+{% block body %}
+<h1 class="display-3">Watchlist</h1>
+
+
+{% for listing in user.watchlist.all %}
+{% if listing.winner is None %}
+
+<div class="row border border-dark mt-4 p-2 rounded shadow" >
+    <a href="{% url 'auctions:removewatchlist' listing.id%}" style="width: 2%;padding-right: 7px;">
+        <div class="" >
+            <button class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </a>
+    <a class="" style="width: 98% ; margin-top: 2px;" href="{% url 'auctions:listing' listing.id%}">
+        <div class="">
+            {{listing.title|title}}
+            <small class="text-muted float-right">The auction is still ongoing.</small>
+        </div>
+    </a>
+</div>
+
+
+{% else %}
+{% if listing.winner == user %}
+<div class="row border border-dark mt-4 p-2 rounded shadow" >
+    <a href="{% url 'auctions:removewatchlist' listing.id%}" style="width: 2%;padding-right: 7px;">
+        <div class="" >
+            <button class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </a>
+    <a class="text-muted " style="width: 98% ; margin-top: 2px;" href="{% url 'auctions:listing' listing.id%}">
+        <div class="">
+            {{listing.title|title}}
+            <small class="text-success float-right">You have won the auction.</small>
+        </div>
+    </a>
+</div>
+{% else %}
+<div class="row border border-dark mt-4 p-2 rounded shadow" >
+    <a href="{% url 'auctions:removewatchlist' listing.id%}" style="width: 2%;padding-right: 7px;">
+        <div class="" >
+            <button class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </a>
+    <a class="text-muted " style="width: 98% ; margin-top: 2px;" href="{% url 'auctions:listing' listing.id%}">
+        <div class="">
+            {{listing.title|title}}
+            <small class="text-danger float-right">{{listing.winner.username}} has won the auction.</small>
+        </div>
+    </a>
+</div>
+{% endif %}
+{% endif %}
+
+{%empty%}
+You haven't added a Listing yet
+{% endfor %}
+{% endblock body %}
