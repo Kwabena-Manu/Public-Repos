@@ -1,4 +1,4 @@
-# Public-Repos
+# Django Projects Public-Repos
 Projects here include:
 
 - commerce: An Auction web application made with Django 
