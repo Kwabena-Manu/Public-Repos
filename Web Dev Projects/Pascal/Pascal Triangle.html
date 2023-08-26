@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pascal Triangle </title>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('input').focus();
+            document.querySelector('#content').style.display = 'none';
+            document.querySelector('#container').style.marginTop = '18%'
+
+
+
+
+            document.querySelector('button').onclick = load;
+
+            document.querySelector('input').onkeypress = submit_value;
+        });
+
+
+        function load() {
+            document.querySelector('#content').style.display = 'none';
+            document.querySelector('#content').innerHTML = '';
+            const inputField = document.querySelector('input');
+
+            const value = parseInt(inputField.value);
+
+            console.log(
+                value
+            )
+
+            if (!value || value < 1) {
+                alert("The size must be a positive number greater than 1");
+            } else {
+
+                document.querySelector('#container').style.animationPlayState = 'running'
+                document.querySelector('input').style.animationPlayState = 'running'
+                document.querySelector('button').style.animationPlayState = 'running'
+                document.querySelector('#content').style.display = 'block'
+                pascal(value);
+
+                document.querySelector('input').value = "";
+                document.querySelector('input').focus();
+
+            }
+        }
+
+        function submit_value(event) {
+            if (event.key === "Enter") {
+                load();
+            }
+
+        }
+
+        function pascal(size) {
+            if (size === 1) {
+                const div1 = document.createElement('div')
+                div1.style.textAlign = 'center';
+                div1.innerHTML = 1
+                document.querySelector('#content').append(div1)
+
+            } else if (size === 2) {
+                const div1 = document.createElement('div')
+                div1.style.textAlign = 'center';
+                div1.innerHTML = 1
+                const div2 = document.createElement('div')
+                div2.style.textAlign = 'center';
+                div2.innerHTML = '1  1'
+                document.querySelector('#content').append(div1, div2);
+
+            } else {
+                const div1 = document.createElement('div')
+                div1.style.textAlign = 'center';
+                div1.innerHTML = 1
+                const div2 = document.createElement('div')
+                div2.style.textAlign = 'center';
+                div2.innerHTML = '1  1'
+                document.querySelector('#content').append(div1, div2)
+
+                let numbers = [2]
+                let text = '';
+
+                for (let i = 0; i < size - 2; i++) {
+                    let nexttext = [1];
+                    text = '1'
+                    for (let a = 0; a < numbers.length; a++) {
+                        nexttext.push(numbers[a]);
+                        text = text + `  ${numbers[a].toString()}  `
+                    }
+                    text = text + '1'
+                    nexttext.push(1)
+                    const newdiv = document.createElement('div');
+                    newdiv.style.textAlign = 'center';
+
+                    newdiv.innerHTML = text;
+
+                    document.querySelector('#content').append(newdiv);
+                    numbers = [];
+                    for (let b = 0; b < nexttext.length - 1; b++) {
+                        num = nexttext[b] + nexttext[b + 1]
+                        numbers.push(num)
+                    }
+
+                }
+            }
+
+        }
+    </script>
+    <style>
+        body {
+            height: 100%;
+            width: 100%;
+            background-color: rgb(237, 241, 227);
+        }
+        
+        h3 {
+            text-align: center;
+        }
+        
+        @keyframes move {
+            0% {
+                height: 60px;
+            }
+            100% {
+                height: 30px;
+            }
+        }
+        
+        input {
+            animation-name: move;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+            animation-play-state: paused;
+            border: 1px solid #ced4da;
+            height: 70px;
+            width: 30%;
+            outline: 0;
+            text-align: center;
+            border-radius: 30px;
+        }
+        
+        input:focus {
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
+        }
+        
+        button {
+            animation-name: move;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+            animation-play-state: paused;
+            color: #fff;
+            border: 0px;
+            background-color: #007bff;
+            outline: 0px;
+            height: 35px;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            margin-left: 4px;
+        }
+        
+        button:hover {
+            color: #fff;
+            background-color: #0069d9;
+            border-color: #0062cc;
+        }
+        
+        @keyframes destroymargin {
+            0% {
+                margin-top: 14%;
+            }
+            100% {
+                margin-top: 0%;
+            }
+        }
+        
+        #container {
+            height: 100%;
+            margin: 30px;
+            padding: 20px;
+            text-align: center;
+            animation-name: destroymargin;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+            animation-play-state: paused;
+        }
+        
+        #content {
+            font-size: larger;
+            box-shadow: 2px 20px 50px rgb(189, 184, 184);
+            outline: 0px;
+            height: 100%;
+            margin: 30px;
+            margin-top: 10px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ced4da;
+            border-radius: 20px;
+        }
+        
+        @keyframes movetitle {
+            0% {
+                left: 0%;
+            }
+            100% {
+                left: 35%;
+            }
+        }
+        
+        h1 {
+            position: relative;
+            animation-name: movetitle;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Pascal Triangle Generator</h1>
+    <div id="container">
+        <p><input type="text" name="size" placeholder="Type the size here..."><button>Start Operation</button></p>
+        <div id="content">
+        </div>
+    </div>
+</body>
+
+</html>

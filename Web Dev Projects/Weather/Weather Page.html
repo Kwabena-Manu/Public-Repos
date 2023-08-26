@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            getGeolocation();
+
+        })
+
+
+        function getGeolocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(getPosition);
+            } else {
+                return "Your browser doesn't support geolocation"
+            }
+
+            function getPosition(location) {
+                console.log(location.coords)
+                getWeatherData(location.coords)
+
+            }
+
+            function getWeatherData(coordinates) {
+                fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}&appid=e33e5d9021ecab25dad71ad1c1d3e65f`).
+                then(response => response.json())
+                    .then(data => {
+                        console.log(data)
+
+                        document.querySelector('#citcount').innerHTML = `${data.name},${data.sys.country}`;
+                        console.log(data.weather[0].icon)
+                        document.querySelector("#wedaimg").src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`
+                        document.querySelector("#wedaimg").style.width = '100px'
+                        document.querySelector('span').innerHTML = `${((data.main.temp) -273).toFixed(0)}℃`
+                        document.querySelector("#weather_description").innerHTML = `${(data.weather[0].description).toUpperCase()}`
+                        var today = new Date().toLocaleTimeString();
+                        document.querySelector("#time").innerHTML = `Updated as of ${today}`
+
+
+
+
+                    })
+            }
+
+        }
+    </script>
+
+    <style>
+        body,
+        html {
+            margin: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        #container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            margin: auto;
+            border: 1px solid;
+            background-image: url('rafael-garcin-sqZ4GeyYGx8-unsplash.jpg');
+            background-size: 100% 100%;
+        }
+        
+        #content {
+            background-color: rgba(150, 191, 224, 0.4);
+            position: relative;
+            width: 40%;
+            height: 350px;
+            margin: auto;
+            top: 4%;
+        }
+        
+        p {
+            color: rgb(238, 238, 211);
+            text-align: center;
+            line-height: 70%;
+        }
+        
+        #temp {
+            display: inline-block;
+            font-size: 100px;
+            margin: 0;
+            transform: scale(.5, 1);
+        }
+        
+        #citcount {
+            line-height: 70%;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            font-size: 70px;
+            transform: scale(0.5, 0.8);
+        }
+        
+        img {
+            vertical-align: bottom;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="content">
+            <p id="citcount"></p>
+            <p style="margin-bottom: 0px;"><img src="" id="wedaimg" alt=""></p>
+            <p>
+                <span id="temp"></span>
+            </p>
+            <p id="weather_description">
+                <p style="font-size: small;" id="time"></p>
+
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

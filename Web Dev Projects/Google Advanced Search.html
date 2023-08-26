@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        html,
+        body {
+            margin: 0px;
+            height: 100%;
+            font-family: arial, sans-serif
+        }
+
+        #pageBody {
+            width: 100%;
+            height: 100%;
+        }
+
+        #topBar {
+            font: 13px/27px Arial, sans-serif;
+            position: relative;
+            height: 60px;
+            width: 100%;
+            background: #f1f1f1;
+        }
+
+        #topBar #searchPageButton{
+            position: relative;
+            height: 60px;
+            left: 1150px ;
+            bottom: 45px;
+        }
+
+        #topBar #searchPageButton a {
+            text-decoration: none;
+            font-family: sans-serif;
+            font-size: 17px;
+            text-align: center;
+            margin-left: 20px;
+            padding: 5px;
+            color: cornflowerblue;
+
+
+        }
+
+        #topBar #searchPageButton a:hover {
+            color: blue;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            background-color: #f8f9fa;
+            border: 1px solid #dadce0;
+        }
+
+
+        
+
+        #googleLogo {
+            min-width: 127px;
+            height: 60px;
+            overflow: hidden;
+            position: relative;
+            z-index: 987;
+            max-width: 152px;
+            background-color: transparent;
+        }
+
+        #googleLogo a img {
+            top: 17px;
+            vertical-align: middle;
+            position: absolute;
+            background-color: transparent;
+            width: 92px;
+            height: 30px;
+            padding: 0px 20px 0px 15px;
+        }
+
+        #appBar {
+            width: 725px;
+            height: 23px;
+            background-color: transparent;
+            color: #d93025;
+            font-size: 20px;
+            margin: 25px 35px;
+
+        }
+
+
+
+        #appBar label {
+            margin-left: 10px
+        }
+
+        #searchArea {
+            max-width: 1140px;
+            min-width: 200px;
+            width: 96%;
+            margin: 40px 2% 0 45px
+        }
+
+        #heading {
+            height: 30px;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .Line {
+            width: 100%;
+            clear: both;
+        }
+
+        .line1col1 {
+            float: left;
+            display: inline-block;
+            min-width: 167px;
+            width: 16%;
+            font-size: 16px;
+            min-height: 42px;
+            font-weight: 500;
+            color: #333;
+            vertical-align: middle;
+        }
+
+        .generalInsc {
+            height: 30px;
+            display: table-cell;
+            vertical-align: middle
+        }
+
+        .space {
+            float: left;
+            display: inline-block;
+            min-width: 167px;
+            min-height: 41px;
+            vertical-align: middle;
+            width: 50%;
+        }
+
+        .line1col3 {
+            float: left;
+            display: inline-block;
+            width: 33%;
+            font-size: 13px;
+            font-weight: 700;
+            color: #777;
+            padding-left: 5px;
+            vertical-align: middle;
+        }
+
+        .firstColumn {
+            float: left;
+            display: inline-block;
+            min-width: 167px;
+            width: 16%;
+            height: 42px;
+            color: #222;
+            font-size: 13px;
+            line-height: 16px;
+            vertical-align: middle
+        }
+
+        div.secondColumn input[type="text"],
+        div.secondColumn span.PnexQd {
+            width: 100%;
+            text-align: left
+        }
+
+        div.secondColumn select {
+            width: 100%;
+            height: 29px;
+            font-weight: 700;
+            font-size: 11px;
+            background-color: #eee;
+            line-height: 27px;
+            padding-left: 4px;
+            color: #333;
+            border: 1px solid #d9d9d9;
+            border-top: 1px solid #c0c0c0;
+            display: inline-block;
+            vertical-align: top;
+            padding-left: 2px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        div.secondColumn {
+            float: left;
+            display: inline-block;
+            min-width: 167px;
+            min-height: 41px;
+            vertical-align: middle;
+            width: 50%;
+        }
+
+        .inputStyle {
+            border-radius: 1px;
+            border: 1px solid #d9d9d9;
+            border-top: 1px solid #c0c0c0;
+            font-size: 13px;
+            height: 25px;
+            padding: 1px 8px
+        }
+
+        .inputStyle:focus {
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+            border: 1px solid #4d90fe;
+            outline: none
+        }
+
+        .d1 {
+            padding-right: 16px
+        }
+
+        .col3spec {
+            color: #666;
+            font-family: monospace;
+            font-size: 11px;
+            white-space: pre
+        }
+
+        .thirdColumn {
+
+            float: left;
+            display: inline-block;
+            width: 32%;
+            min-width: 160px;
+            margin: 0 0 8px 1%;
+            color: #555;
+            font-size: 11px;
+            padding-left: 5px;
+            vertical-align: middle;
+            position: relative
+        }
+
+
+        .menuitem {
+            vertical-align: middle;
+            position: relative;
+            color: #333;
+            cursor: pointer;
+            list-style: none;
+            margin: 0;
+            padding: 6px 8em 6px 30px;
+            white-space: nowrap;
+
+
+        }
+
+        .menuitem-highlight,
+        .menuitem :hover {
+            background-color: #eee;
+            border-color: #eee;
+            border-style: dotted;
+            border-width: 1px 0;
+            padding-top: 5px;
+            padding-bottom: 5px
+        }
+
+
+
+
+        .menu {
+
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: opacity .218s;
+            background: #fff;
+            border: 1px solid #ccc;
+            border: 1px solid rgba(0, 0, 0, .2);
+            cursor: default;
+            font-size: 13px;
+            margin: 0;
+            outline: none;
+            padding: 6px 0;
+            position: absolute
+        }
+
+        .cleanDec {
+            max-height: 200px;
+            z-index: 12;
+            overflow: auto
+        }
+
+        .gStyle {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+            text-indent: 4px
+        }
+
+
+
+        #dropList option {
+            font-family: arial,sans-serif;
+            background-color: white;
+            border: 1px solid #dcdcdc;
+            
+            
+            font-size: 20px;
+            line-height: 27px;
+        
+            
+            /* min-width: 46px; */
+            outline: none;
+            vertical-align: middle;
+            text-align: center;
+            text-decoration: none;
+    
+            width: 570px;
+
+            position: relative;
+            color: #333;
+            cursor: pointer;
+            list-style: none;
+            margin: 0;
+            padding: 6px 8em 6px 30px;
+            white-space: nowrap;
+            
+
+        }
+
+        .buttonchr {
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+            cursor: default;
+            font-size: 11px;
+            font-weight: bold;
+            text-align: center;
+            white-space: nowrap;
+            margin-right: 16px;
+            height: 27px;
+            line-height: 27px;
+            min-width: 54px;
+            outline: 0;
+            padding: 0 8px
+        }   
+
+        .buttondeco {
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+            background-color: #4d90fe;
+            background-image: -webkit-linear-gradient(top, #4d90fe, #4787ed);
+            background-image: -moz-linear-gradient(top, #4d90fe, #4787ed);
+            background-image: -ms-linear-gradient(top, #4d90fe, #4787ed);
+            background-image: -o-linear-gradient(top, #4d90fe, #4787ed);
+            background-image: linear-gradient(top, #4d90fe, #4787ed);
+            border: 1px solid #3079ed;
+            color: #fff
+        }
+
+        .buttondeco:hover {
+            background-color: #357ae8;
+            background-image: -webkit-linear-gradient(top, #4d90fe, #357ae8);
+            background-image: -moz-linear-gradient(top, #4d90fe, #357ae8);
+            background-image: -ms-linear-gradient(top, #4d90fe, #357ae8);
+            background-image: -o-linear-gradient(top, #4d90fe, #357ae8);
+            background-image: linear-gradient(top, #4d90fe, #357ae8);
+            border: 1px solid #2f5bb7;
+            border-image: initial
+        }
+
+        .buttondeco:active {
+            -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+            -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+            background: #357ae8;
+            border: 1px solid #2f5bb7;
+            border-top: 1px solid #2f5bb7
+        }
+
+        .buttondeco:focus {
+            -webkit-box-shadow: inset 0 0 0 1px #fff;
+            -moz-box-shadow: inset 0 0 0 1px #fff;
+            box-shadow: inset 0 0 0 1px #fff;
+            border: 1px solid #fff;
+            border: rgba(0, 0, 0, 0) solid 1px;
+            outline: 1px solid #4d90fe;
+            outline: rgba(0, 0, 0, 0) 0
+        }
+
+         input .lowerbutton {
+            float: right;
+            margin: 10px 0;
+            padding: 0 12px;
+        }
+
+          
+
+        
+    </style>
+</head>
+
+<body>
+    <div id="pageBody">
+        <div id="topBar">
+            <div id="googleLogo">
+                <a href="https://www.google.com/search">
+                    <img src="GoogleLogo.png" alt="Google Logo">
+                </a>
+                
+            </div>
+
+            <div id="searchPageButton" >
+                <a href="Google Search Page.html">Google Search</a>
+
+            </div>
+
+
+        </div>
+        <div id="inBody">
+            <div id="appBar">
+                <label>Advanced Search</label>
+            </div>
+            <div style="border-bottom: 1px solid #ebebeb"></div>
+
+            <div id="searchArea">
+                <form action="https://www.google.com/search" method="GET">
+                    <div class="Line">
+                        <div class="line1col1">
+                            <div class="generalInsc">
+                                <span>Find pages with...</span>
+                            </div>
+                        </div>
+                        <div class="space">
+                            &nbsp
+                        </div>
+                        <div class="line1col3">
+                            <div class="generalInsc">To do this in the search box.</div>
+                        </div>
+                    </div>
+
+                    <div class="Line">
+                        <div class="firstColumn">
+                            <div class="generalInsc">
+                                <label for="in1">all these words:</label>
+                            </div>
+                        </div>
+                        <div class="secondColumn">
+                            <div class="d1">
+                                <input type="text" value="" id="in1" class="inputStyle" name="as_q">
+                            </div>
+
+                        </div>
+
+                        <div class="thirdColumn">
+                            <div class="generalInsc">Type the important words: <span class="col3spec">tri-colour rat terrier</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Line">
+                        <div class="firstColumn">
+                            <div class="generalInsc">
+                                <label for="in2">this exact word or phrase:</label>
+                            </div>
+                        </div>
+                        <div class="secondColumn">
+                            <div class="d1">
+                                <input type="text" value="" id="in2" class="inputStyle" name="as_epq">
+                            </div>
+
+                        </div>
+
+                        <div class="thirdColumn">
+                            <div class="generalInsc">Put exact words in quotes: <span class="col3spec">&quot;rat terrier&quot;</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="Line">
+                        <div class="firstColumn">
+                            <div class="generalInsc">
+                                <label for="in3">any of these words:</label>
+                            </div>
+                        </div>
+                        <div class="secondColumn">
+                            <div class="d1">
+                                <input type="text" value="" id="in3" class="inputStyle" name="as_oq">
+                            </div>
+
+                        </div>
+
+                        <div class="thirdColumn">
+                            <div class="generalInsc">Type <span class="col3spec">OR</span> between all the words you
+                                want: <span class="col3spec">miniature OR standard</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="Line">
+                        <div class="firstColumn">
+                            <div class="generalInsc">
+                                <label for="in4">none of these words:</label>
+                            </div>
+                        </div>
+                        <div class="secondColumn">
+                            <div class="d1">
+                                <input type="text" value="" id="in4" class="inputStyle" name="as_eq">
+                            </div>
+
+                        </div>
+
+                        <div class="thirdColumn">
+                            <div class="generalInsc">
+                                Put a minus sign just before words that you don't want: <span class="BFlQMb">-rodent,
+                                    -&quot;Jack Russell&quot;</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="Line">
+                        <div class="firstColumn">
+                            <div class="generalInsc">
+                                <label for="in5">numbers ranging from:</label>
+                            </div>
+                        </div>
+                        <div class="secondColumn">
+                            <div class="d1">
+                                <div style="display:table-cell;padding-right:16px">
+                                    <input class="inputStyle" id="in5" name="as_nlo" type="text">
+                                </div>
+                                <div
+                                    style="display:table-cell;width:40px;padding-right:6px;padding-left:6px;text-align:center;font-size:13px;color:#202124">
+                                    to
+                                </div>
+                                <div style="display:table-cell;padding-right:16px">
+                                    <input class="inputStyle" name="as_nhi" type="text">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="thirdColumn">
+                            <div class="generalInsc">
+                                Put two full stops between the numbers and add a unit of measurement:
+                                <span class="BFlQMb">10..35 kg, £300..£500, 2010..2011</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <br><br>
+
+                    <div style="border-top: 1px solid #ebebeb;margin: 18px 0; clear: both;"></div>
+
+
+
+                    <div class="Line">
+                        <div class="line1col1">
+                            <div class="generalInsc">
+                                <span>Then narrow your results by...</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="Line">
+                        <div class="firstColumn">
+                            <div class="generalInsc">
+                                <label for="sel1">language:</label>
+                            </div>
+                        </div>
+
+                        <div class="secondColumn">
+                            <div style="position:relative"><input id="lr_input" name="lr" value="" type="hidden">
+                                <div class="goog-select gStyle " id="lr_button" style="height: 29px;">
+                                    <select id="dropList" class="menu cleanDec jfk-scrollbar" id="sel1" name="lr" style="margin: 0; padding: 0; " >
+                        
+                                        <option class="menuitem" value="">&nbsp;&nbsp;&nbsp;any language</option>
+                                        <option class="menuitem" value="lang_af">&nbsp;&nbsp;&nbsp;Afrikaans</option>
+                                        <option class="menuitem" value="lang_ar">&nbsp;&nbsp;&nbsp;Arabic</option>
+                                        <option class="menuitem" value="lang_hy">&nbsp;&nbsp;&nbsp;Armenian</option>
+                                        <option class="menuitem" value="lang_be">&nbsp;&nbsp;&nbsp;Belarusian</option>
+                                        <option class="menuitem" value="lang_bg">&nbsp;&nbsp;&nbsp;Bulgarian</option>
+                                        <option class="menuitem" value="lang_ca">&nbsp;&nbsp;&nbsp;Catalan</option>
+                                        <option class="menuitem" value="lang_zh-CN">&nbsp;&nbsp;&nbsp;Chinese (Simplified)</option>
+                                        <option class="menuitem" value="lang_zh-TW">&nbsp;&nbsp;&nbsp;Chinese (Traditional)</option>
+                                        <option class="menuitem" value="lang_hr">&nbsp;&nbsp;&nbsp;Croatian</option>
+                                        <option class="menuitem" value="lang_cs">&nbsp;&nbsp;&nbsp;Czech</option>
+                                        <option class="menuitem" value="lang_da">&nbsp;&nbsp;&nbsp;Danish</option>
+                                        <option class="menuitem" value="lang_nl">&nbsp;&nbsp;&nbsp;Dutch</option>
+                                        <option class="menuitem" value="lang_en">&nbsp;&nbsp;&nbsp;English</option>
+                                        <option class="menuitem" value="lang_eo">&nbsp;&nbsp;&nbsp;Esperanto</option>
+                                        <option class="menuitem" value="lang_et">&nbsp;&nbsp;&nbsp;Estonian</option>
+                                        <option class="menuitem" value="lang_tl">&nbsp;&nbsp;&nbsp;Filipino</option>
+                                        <option class="menuitem" value="lang_fi">&nbsp;&nbsp;&nbsp;Finnish</option>
+                                        <option class="menuitem" value="lang_fr">&nbsp;&nbsp;&nbsp;French</option>
+                                        <option class="menuitem" value="lang_de">&nbsp;&nbsp;&nbsp;German</option>
+                                        <option class="menuitem" value="lang_el">&nbsp;&nbsp;&nbsp;Greek</option>
+                                        <option class="menuitem" value="lang_iw">&nbsp;&nbsp;&nbsp;Hebrew</option>
+                                        <option class="menuitem" value="lang_hi">&nbsp;&nbsp;&nbsp;Hindi</option>
+                                        <option class="menuitem" value="lang_hu">&nbsp;&nbsp;&nbsp;Hungarian</option>
+                                        <option class="menuitem" value="lang_is">&nbsp;&nbsp;&nbsp;Icelandic</option>
+                                        <option class="menuitem" value="lang_id">&nbsp;&nbsp;&nbsp;Indonesian</option>
+                                        <option class="menuitem" value="lang_it">&nbsp;&nbsp;&nbsp;Italian</option>
+                                        <option class="menuitem" value="lang_ja">&nbsp;&nbsp;&nbsp;Japanese</option>
+                                        <option class="menuitem" value="lang_ko">&nbsp;&nbsp;&nbsp;Korean</option>
+                                        <option class="menuitem" value="lang_lv">&nbsp;&nbsp;&nbsp;Latvian</option>
+                                        <option class="menuitem" value="lang_lt">&nbsp;&nbsp;&nbsp;Lithuanian</option>
+                                        <option class="menuitem" value="lang_no">&nbsp;&nbsp;&nbsp;Norwegian</option>
+                                        <option class="menuitem" value="lang_fa">&nbsp;&nbsp;&nbsp;Persian</option>
+                                        <option class="menuitem" value="lang_pl">&nbsp;&nbsp;&nbsp;Polish</option>
+                                        <option class="menuitem" value="lang_pt">&nbsp;&nbsp;&nbsp;Portuguese</option>
+                                        <option class="menuitem" value="lang_ro">&nbsp;&nbsp;&nbsp;Romanian</option>
+                                        <option class="menuitem" value="lang_ru">&nbsp;&nbsp;&nbsp;Russian</option>
+                                        <option class="menuitem" value="lang_sr">&nbsp;&nbsp;&nbsp;Serbian</option>
+                                        <option class="menuitem" value="lang_sk">&nbsp;&nbsp;&nbsp;Slovak</option>
+                                        <option class="menuitem" value="lang_sl">&nbsp;&nbsp;&nbsp;Slovenian</option>
+                                        <option class="menuitem" value="lang_es">&nbsp;&nbsp;&nbsp;Spanish</option>
+                                        <option class="menuitem" value="lang_sw">&nbsp;&nbsp;&nbsp;Swahili</option>
+                                        <option class="menuitem" value="lang_sv">&nbsp;&nbsp;&nbsp;Swedish</option>
+                                        <option class="menuitem" value="lang_th">&nbsp;&nbsp;&nbsp;Thai</option>
+                                        <option class="menuitem" value="lang_tr">&nbsp;&nbsp;&nbsp;Turkish</option>
+                                        <option class="menuitem" value="lang_uk">&nbsp;&nbsp;&nbsp;Ukrainian</option>
+                                        <option class="menuitem" value="lang_vi">&nbsp;&nbsp;&nbsp;Vietnamese</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="thirdColumn">
+                            <div class="generalInsc">Find pages in the language that you select.</div>
+                        </div>
+
+                    </div>
+                    <div class="Line">
+                        <div class="firstColumn">
+                            <div class="generalInsc">
+                                <label for="sel2">region:</label>
+                            </div>
+                        </div>
+
+                        <div class="secondColumn">
+                            <div style="position:relative"><input id="cr_input" name="cr" value="" type="hidden">
+                                <div class="goog-select gStyle " id="lr_button" style="height: 29px;">
+                                    <select id="dropList" class="menu cleanDec jfk-scrollbar" id="sel2" name="cr" style="margin: 0; padding: 0; " >
+                        
+                                        <option class="menuitem" value="">&nbsp;&nbsp;&nbsp;any region</option>
+                                        <option class="menuitem" value="countryAF">&nbsp;&nbsp;&nbsp;Afghanistan</option>
+                                        <option class="menuitem" value="countryAL">&nbsp;&nbsp;&nbsp;Albania</option>
+                                        <option class="menuitem" value="countryDZ">&nbsp;&nbsp;&nbsp;Algeria</option>
+                                        <option class="menuitem" value="countryAS">&nbsp;&nbsp;&nbsp;American Samoa</option>
+                                        <option class="menuitem" value="countryAD">&nbsp;&nbsp;&nbsp;Andorra</option>
+                                        <option class="menuitem" value="countryAO">&nbsp;&nbsp;&nbsp;Angola</option>
+                                        <option class="menuitem" value="countryAI">&nbsp;&nbsp;&nbsp;Anguilla</option>
+                                        <option class="menuitem" value="countryAQ">&nbsp;&nbsp;&nbsp;Antarctica</option>
+                                        <option class="menuitem" value="countryAG">&nbsp;&nbsp;&nbsp;Antigua &amp; Barbuda</option>
+                                        <option class="menuitem" value="countryAR">&nbsp;&nbsp;&nbsp;Argentina</option>
+                                        <option class="menuitem" value="countryAM">&nbsp;&nbsp;&nbsp;Armenia</option>
+                                        <option class="menuitem" value="countryAW">&nbsp;&nbsp;&nbsp;Aruba</option>
+                                        <option class="menuitem" value="countryAU">&nbsp;&nbsp;&nbsp;Australia</option>
+                                        <option class="menuitem" value="countryAT">&nbsp;&nbsp;&nbsp;Austria</option>
+                                        <option class="menuitem" value="countryAZ">&nbsp;&nbsp;&nbsp;Azerbaijan</option>
+                                        <option class="menuitem" value="countryBS">&nbsp;&nbsp;&nbsp;Bahamas</option>
+                                        <option class="menuitem" value="countryBH">&nbsp;&nbsp;&nbsp;Bahrain</option>
+                                        <option class="menuitem" value="countryBD">&nbsp;&nbsp;&nbsp;Bangladesh</option>
+                                        <option class="menuitem" value="countryBB">&nbsp;&nbsp;&nbsp;Barbados</option>
+                                        <option class="menuitem" value="countryBY">&nbsp;&nbsp;&nbsp;Belarus</option>
+                                        <option class="menuitem" value="countryBE">&nbsp;&nbsp;&nbsp;Belgium</option>
+                                        <option class="menuitem" value="countryBZ">&nbsp;&nbsp;&nbsp;Belize</option>
+                                        <option class="menuitem" value="countryBJ">&nbsp;&nbsp;&nbsp;Benin</option>
+                                        <option class="menuitem" value="countryBM">&nbsp;&nbsp;&nbsp;Bermuda</option>
+                                        <option class="menuitem" value="countryBT">&nbsp;&nbsp;&nbsp;Bhutan</option>
+                                        <option class="menuitem" value="countryBO">&nbsp;&nbsp;&nbsp;Bolivia</option>
+                                        <option class="menuitem" value="countryBA">&nbsp;&nbsp;&nbsp;Bosnia &amp; Herzegovina</option>
+                                        <option class="menuitem" value="countryBW">&nbsp;&nbsp;&nbsp;Botswana</option>
+                                        <option class="menuitem" value="countryBV">&nbsp;&nbsp;&nbsp;Bouvet Island</option>
+                                        <option class="menuitem" value="countryBR">&nbsp;&nbsp;&nbsp;Brazil</option>
+                                        <option class="menuitem" value="countryIO">&nbsp;&nbsp;&nbsp;British Indian Ocean Territory</option>
+                                        <option class="menuitem" value="countryVG">&nbsp;&nbsp;&nbsp;British Virgin Islands</option>
+                                        <option class="menuitem" value="countryBN">&nbsp;&nbsp;&nbsp;Brunei</option>
+                                        <option class="menuitem" value="countryBG">&nbsp;&nbsp;&nbsp;Bulgaria</option>
+                                        <option class="menuitem" value="countryBF">&nbsp;&nbsp;&nbsp;Burkina Faso</option>
+                                        <option class="menuitem" value="countryBI">&nbsp;&nbsp;&nbsp;Burundi</option>
+                                        <option class="menuitem" value="countryKH">&nbsp;&nbsp;&nbsp;Cambodia</option>
+                                        <option class="menuitem" value="countryCM">&nbsp;&nbsp;&nbsp;Cameroon</option>
+                                        <option class="menuitem" value="countryCA">&nbsp;&nbsp;&nbsp;Canada</option>
+                                        <option class="menuitem" value="countryCV">&nbsp;&nbsp;&nbsp;Cape Verde</option>
+                                        <option class="menuitem" value="countryKY">&nbsp;&nbsp;&nbsp;Cayman Islands</option>
+                                        <option class="menuitem" value="countryCF">&nbsp;&nbsp;&nbsp;Central African Republic</option>
+                                        <option class="menuitem" value="countryTD">&nbsp;&nbsp;&nbsp;Chad</option>
+                                        <option class="menuitem" value="countryCL">&nbsp;&nbsp;&nbsp;Chile</option>
+                                        <option class="menuitem" value="countryCN">&nbsp;&nbsp;&nbsp;China</option>
+                                        <option class="menuitem" value="countryCX">&nbsp;&nbsp;&nbsp;Christmas Island</option>
+                                        <option class="menuitem" value="countryCC">&nbsp;&nbsp;&nbsp;Cocos (Keeling) Islands</option>
+                                        <option class="menuitem" value="countryCO">&nbsp;&nbsp;&nbsp;Colombia</option>
+                                        <option class="menuitem" value="countryKM">&nbsp;&nbsp;&nbsp;Comoros</option>
+                                        <option class="menuitem" value="countryCG">&nbsp;&nbsp;&nbsp;Congo - Brazzaville</option>
+                                        <option class="menuitem" value="countryCD">&nbsp;&nbsp;&nbsp;Congo - Kinshasa</option>
+                                        <option class="menuitem" value="countryCK">&nbsp;&nbsp;&nbsp;Cook Islands</option>
+                                        <option class="menuitem" value="countryCR">&nbsp;&nbsp;&nbsp;Costa Rica</option>
+                                        <option class="menuitem" value="countryCI">&nbsp;&nbsp;&nbsp;Côte d’Ivoire</option>
+                                        <option class="menuitem" value="countryHR">&nbsp;&nbsp;&nbsp;Croatia</option>
+                                        <option class="menuitem" value="countryCU">&nbsp;&nbsp;&nbsp;Cuba</option>
+                                        <option class="menuitem" value="countryCY">&nbsp;&nbsp;&nbsp;Cyprus</option>
+                                        <option class="menuitem" value="countryCZ">&nbsp;&nbsp;&nbsp;Czechia</option>
+                                        <option class="menuitem" value="countryDK">&nbsp;&nbsp;&nbsp;Denmark</option>
+                                        <option class="menuitem" value="countryDJ">&nbsp;&nbsp;&nbsp;Djibouti</option>
+                                        <option class="menuitem" value="countryDM">&nbsp;&nbsp;&nbsp;Dominica</option>
+                                        <option class="menuitem" value="countryDO">&nbsp;&nbsp;&nbsp;Dominican Republic</option>
+                                        <option class="menuitem" value="countryEC">&nbsp;&nbsp;&nbsp;Ecuador</option>
+                                        <option class="menuitem" value="countryEG">&nbsp;&nbsp;&nbsp;Egypt</option>
+                                        <option class="menuitem" value="countrySV">&nbsp;&nbsp;&nbsp;El Salvador</option>
+                                        <option class="menuitem" value="countryGQ">&nbsp;&nbsp;&nbsp;Equatorial Guinea</option>
+                                        <option class="menuitem" value="countryER">&nbsp;&nbsp;&nbsp;Eritrea</option>
+                                        <option class="menuitem" value="countryEE">&nbsp;&nbsp;&nbsp;Estonia</option>
+                                        <option class="menuitem" value="countrySZ">&nbsp;&nbsp;&nbsp;Eswatini</option>
+                                        <option class="menuitem" value="countryET">&nbsp;&nbsp;&nbsp;Ethiopia</option>
+                                        <option class="menuitem" value="countryFK">&nbsp;&nbsp;&nbsp;Falkland Islands (Islas Malvinas)
+                                        </option>
+                                        <option class="menuitem" value="countryFO">&nbsp;&nbsp;&nbsp;Faroe Islands</option>
+                                        <option class="menuitem" value="countryFJ">&nbsp;&nbsp;&nbsp;Fiji</option>
+                                        <option class="menuitem" value="countryFI">&nbsp;&nbsp;&nbsp;Finland</option>
+                                        <option class="menuitem" value="countryFR">&nbsp;&nbsp;&nbsp;France</option>
+                                        <option class="menuitem" value="countryGF">&nbsp;&nbsp;&nbsp;French Guiana</option>
+                                        <option class="menuitem" value="countryPF">&nbsp;&nbsp;&nbsp;French Polynesia</option>
+                                        <option class="menuitem" value="countryTF">&nbsp;&nbsp;&nbsp;French Southern Territories</option>
+                                        <option class="menuitem" value="countryGA">&nbsp;&nbsp;&nbsp;Gabon</option>
+                                        <option class="menuitem" value="countryGM">&nbsp;&nbsp;&nbsp;Gambia</option>
+                                        <option class="menuitem" value="countryGE">&nbsp;&nbsp;&nbsp;Georgia</option>
+                                        <option class="menuitem" value="countryDE">&nbsp;&nbsp;&nbsp;Germany</option>
+                                        <option class="menuitem" value="countryGH">&nbsp;&nbsp;&nbsp;Ghana</option>
+                                        <option class="menuitem" value="countryGI">&nbsp;&nbsp;&nbsp;Gibraltar</option>
+                                        <option class="menuitem" value="countryGR">&nbsp;&nbsp;&nbsp;Greece</option>
+                                        <option class="menuitem" value="countryGL">&nbsp;&nbsp;&nbsp;Greenland</option>
+                                        <option class="menuitem" value="countryGD">&nbsp;&nbsp;&nbsp;Grenada</option>
+                                        <option class="menuitem" value="countryGP">&nbsp;&nbsp;&nbsp;Guadeloupe</option>
+                                        <option class="menuitem" value="countryGU">&nbsp;&nbsp;&nbsp;Guam</option>
+                                        <option class="menuitem" value="countryGT">&nbsp;&nbsp;&nbsp;Guatemala</option>
+                                        <option class="menuitem" value="countryGN">&nbsp;&nbsp;&nbsp;Guinea</option>
+                                        <option class="menuitem" value="countryGW">&nbsp;&nbsp;&nbsp;Guinea-Bissau</option>
+                                        <option class="menuitem" value="countryGY">&nbsp;&nbsp;&nbsp;Guyana</option>
+                                        <option class="menuitem" value="countryHT">&nbsp;&nbsp;&nbsp;Haiti</option>
+                                        <option class="menuitem" value="countryHM">&nbsp;&nbsp;&nbsp;Heard &amp; McDonald Islands</option>
+                                        <option class="menuitem" value="countryHN">&nbsp;&nbsp;&nbsp;Honduras</option>
+                                        <option class="menuitem" value="countryHK">&nbsp;&nbsp;&nbsp;Hong Kong</option>
+                                        <option class="menuitem" value="countryHU">&nbsp;&nbsp;&nbsp;Hungary</option>
+                                        <option class="menuitem" value="countryIS">&nbsp;&nbsp;&nbsp;Iceland</option>
+                                        <option class="menuitem" value="countryIN">&nbsp;&nbsp;&nbsp;India</option>
+                                        <option class="menuitem" value="countryID">&nbsp;&nbsp;&nbsp;Indonesia</option>
+                                        <option class="menuitem" value="countryIR">&nbsp;&nbsp;&nbsp;Iran</option>
+                                        <option class="menuitem" value="countryIQ">&nbsp;&nbsp;&nbsp;Iraq</option>
+                                        <option class="menuitem" value="countryIE">&nbsp;&nbsp;&nbsp;Ireland</option>
+                                        <option class="menuitem" value="countryIL">&nbsp;&nbsp;&nbsp;Israel</option>
+                                        <option class="menuitem" value="countryIT">&nbsp;&nbsp;&nbsp;Italy</option>
+                                        <option class="menuitem" value="countryJM">&nbsp;&nbsp;&nbsp;Jamaica</option>
+                                        <option class="menuitem" value="countryJP">&nbsp;&nbsp;&nbsp;Japan</option>
+                                        <option class="menuitem" value="countryJO">&nbsp;&nbsp;&nbsp;Jordan</option>
+                                        <option class="menuitem" value="countryKZ">&nbsp;&nbsp;&nbsp;Kazakhstan</option>
+                                        <option class="menuitem" value="countryKE">&nbsp;&nbsp;&nbsp;Kenya</option>
+                                        <option class="menuitem" value="countryKI">&nbsp;&nbsp;&nbsp;Kiribati</option>
+                                        <option class="menuitem" value="countryKW">&nbsp;&nbsp;&nbsp;Kuwait</option>
+                                        <option class="menuitem" value="countryKG">&nbsp;&nbsp;&nbsp;Kyrgyzstan</option>
+                                        <option class="menuitem" value="countryLA">&nbsp;&nbsp;&nbsp;Laos</option>
+                                        <option class="menuitem" value="countryLV">&nbsp;&nbsp;&nbsp;Latvia</option>
+                                        <option class="menuitem" value="countryLB">&nbsp;&nbsp;&nbsp;Lebanon</option>
+                                        <option class="menuitem" value="countryLS">&nbsp;&nbsp;&nbsp;Lesotho</option>
+                                        <option class="menuitem" value="countryLR">&nbsp;&nbsp;&nbsp;Liberia</option>
+                                        <option class="menuitem" value="countryLY">&nbsp;&nbsp;&nbsp;Libya</option>
+                                        <option class="menuitem" value="countryLI">&nbsp;&nbsp;&nbsp;Liechtenstein</option>
+                                        <option class="menuitem" value="countryLT">&nbsp;&nbsp;&nbsp;Lithuania</option>
+                                        <option class="menuitem" value="countryLU">&nbsp;&nbsp;&nbsp;Luxembourg</option>
+                                        <option class="menuitem" value="countryMO">&nbsp;&nbsp;&nbsp;Macao</option>
+                                        <option class="menuitem" value="countryMG">&nbsp;&nbsp;&nbsp;Madagascar</option>
+                                        <option class="menuitem" value="countryMW">&nbsp;&nbsp;&nbsp;Malawi</option>
+                                        <option class="menuitem" value="countryMY">&nbsp;&nbsp;&nbsp;Malaysia</option>
+                                        <option class="menuitem" value="countryMV">&nbsp;&nbsp;&nbsp;Maldives</option>
+                                        <option class="menuitem" value="countryML">&nbsp;&nbsp;&nbsp;Mali</option>
+                                        <option class="menuitem" value="countryMT">&nbsp;&nbsp;&nbsp;Malta</option>
+                                        <option class="menuitem" value="countryMH">&nbsp;&nbsp;&nbsp;Marshall Islands</option>
+                                        <option class="menuitem" value="countryMQ">&nbsp;&nbsp;&nbsp;Martinique</option>
+                                        <option class="menuitem" value="countryMR">&nbsp;&nbsp;&nbsp;Mauritania</option>
+                                        <option class="menuitem" value="countryMU">&nbsp;&nbsp;&nbsp;Mauritius</option>
+                                        <option class="menuitem" value="countryYT">&nbsp;&nbsp;&nbsp;Mayotte</option>
+                                        <option class="menuitem" value="countryMX">&nbsp;&nbsp;&nbsp;Mexico</option>
+                                        <option class="menuitem" value="countryFM">&nbsp;&nbsp;&nbsp;Micronesia</option>
+                                        <option class="menuitem" value="countryMD">&nbsp;&nbsp;&nbsp;Moldova</option>
+                                        <option class="menuitem" value="countryMC">&nbsp;&nbsp;&nbsp;Monaco</option>
+                                        <option class="menuitem" value="countryMN">&nbsp;&nbsp;&nbsp;Mongolia</option>
+                                        <option class="menuitem" value="countryMS">&nbsp;&nbsp;&nbsp;Montserrat</option>
+                                        <option class="menuitem" value="countryMA">&nbsp;&nbsp;&nbsp;Morocco</option>
+                                        <option class="menuitem" value="countryMZ">&nbsp;&nbsp;&nbsp;Mozambique</option>
+                                        <option class="menuitem" value="countryMM">&nbsp;&nbsp;&nbsp;Myanmar (Burma)</option>
+                                        <option class="menuitem" value="countryNA">&nbsp;&nbsp;&nbsp;Namibia</option>
+                                        <option class="menuitem" value="countryNR">&nbsp;&nbsp;&nbsp;Nauru</option>
+                                        <option class="menuitem" value="countryNP">&nbsp;&nbsp;&nbsp;Nepal</option>
+                                        <option class="menuitem" value="countryNL">&nbsp;&nbsp;&nbsp;Netherlands</option>
+                                        <option class="menuitem" value="countryNC">&nbsp;&nbsp;&nbsp;New Caledonia</option>
+                                        <option class="menuitem" value="countryNZ">&nbsp;&nbsp;&nbsp;New Zealand</option>
+                                        <option class="menuitem" value="countryNI">&nbsp;&nbsp;&nbsp;Nicaragua</option>
+                                        <option class="menuitem" value="countryNE">&nbsp;&nbsp;&nbsp;Niger</option>
+                                        <option class="menuitem" value="countryNG">&nbsp;&nbsp;&nbsp;Nigeria</option>
+                                        <option class="menuitem" value="countryNU">&nbsp;&nbsp;&nbsp;Niue</option>
+                                        <option class="menuitem" value="countryNF">&nbsp;&nbsp;&nbsp;Norfolk Island</option>
+                                        <option class="menuitem" value="countryKP">&nbsp;&nbsp;&nbsp;North Korea</option>
+                                        <option class="menuitem" value="countryMK">&nbsp;&nbsp;&nbsp;North Macedonia</option>
+                                        <option class="menuitem" value="countryMP">&nbsp;&nbsp;&nbsp;Northern Mariana Islands</option>
+                                        <option class="menuitem" value="countryNO">&nbsp;&nbsp;&nbsp;Norway</option>
+                                        <option class="menuitem" value="countryOM">&nbsp;&nbsp;&nbsp;Oman</option>
+                                        <option class="menuitem" value="countryPK">&nbsp;&nbsp;&nbsp;Pakistan</option>
+                                        <option class="menuitem" value="countryPW">&nbsp;&nbsp;&nbsp;Palau</option>
+                                        <option class="menuitem" value="countryPS">&nbsp;&nbsp;&nbsp;Palestine</option>
+                                        <option class="menuitem" value="countryPA">&nbsp;&nbsp;&nbsp;Panama</option>
+                                        <option class="menuitem" value="countryPG">&nbsp;&nbsp;&nbsp;Papua New Guinea</option>
+                                        <option class="menuitem" value="countryPY">&nbsp;&nbsp;&nbsp;Paraguay</option>
+                                        <option class="menuitem" value="countryPE">&nbsp;&nbsp;&nbsp;Peru</option>
+                                        <option class="menuitem" value="countryPH">&nbsp;&nbsp;&nbsp;Philippines</option>
+                                        <option class="menuitem" value="countryPN">&nbsp;&nbsp;&nbsp;Pitcairn Islands</option>
+                                        <option class="menuitem" value="countryPL">&nbsp;&nbsp;&nbsp;Poland</option>
+                                        <option class="menuitem" value="countryPT">&nbsp;&nbsp;&nbsp;Portugal</option>
+                                        <option class="menuitem" value="countryPR">&nbsp;&nbsp;&nbsp;Puerto Rico</option>
+                                        <option class="menuitem" value="countryQA">&nbsp;&nbsp;&nbsp;Qatar</option>
+                                        <option class="menuitem" value="countryRE">&nbsp;&nbsp;&nbsp;Réunion</option>
+                                        <option class="menuitem" value="countryRO">&nbsp;&nbsp;&nbsp;Romania</option>
+                                        <option class="menuitem" value="countryRU">&nbsp;&nbsp;&nbsp;Russia</option>
+                                        <option class="menuitem" value="countryRW">&nbsp;&nbsp;&nbsp;Rwanda</option>
+                                        <option class="menuitem" value="countryWS">&nbsp;&nbsp;&nbsp;Samoa</option>
+                                        <option class="menuitem" value="countrySM">&nbsp;&nbsp;&nbsp;San Marino</option>
+                                        <option class="menuitem" value="countryST">&nbsp;&nbsp;&nbsp;São Tomé &amp; Príncipe</option>
+                                        <option class="menuitem" value="countrySA">&nbsp;&nbsp;&nbsp;Saudi Arabia</option>
+                                        <option class="menuitem" value="countrySN">&nbsp;&nbsp;&nbsp;Senegal</option>
+                                        <option class="menuitem" value="countryRS">&nbsp;&nbsp;&nbsp;Serbia</option>
+                                        <option class="menuitem" value="countrySC">&nbsp;&nbsp;&nbsp;Seychelles</option>
+                                        <option class="menuitem" value="countrySL">&nbsp;&nbsp;&nbsp;Sierra Leone</option>
+                                        <option class="menuitem" value="countrySG">&nbsp;&nbsp;&nbsp;Singapore</option>
+                                        <option class="menuitem" value="countrySK">&nbsp;&nbsp;&nbsp;Slovakia</option>
+                                        <option class="menuitem" value="countrySI">&nbsp;&nbsp;&nbsp;Slovenia</option>
+                                        <option class="menuitem" value="countrySB">&nbsp;&nbsp;&nbsp;Solomon Islands</option>
+                                        <option class="menuitem" value="countrySO">&nbsp;&nbsp;&nbsp;Somalia</option>
+                                        <option class="menuitem" value="countryZA">&nbsp;&nbsp;&nbsp;South Africa</option>
+                                        <option class="menuitem" value="countryGS">&nbsp;&nbsp;&nbsp;South Georgia &amp; South Sandwich
+                                            Islands</option>
+                                        <option class="menuitem" value="countryKR">&nbsp;&nbsp;&nbsp;South Korea</option>
+                                        <option class="menuitem" value="countryES">&nbsp;&nbsp;&nbsp;Spain</option>
+                                        <option class="menuitem" value="countryLK">&nbsp;&nbsp;&nbsp;Sri Lanka</option>
+                                        <option class="menuitem" value="countrySH">&nbsp;&nbsp;&nbsp;St. Helena</option>
+                                        <option class="menuitem" value="countryKN">&nbsp;&nbsp;&nbsp;St. Kitts &amp; Nevis</option>
+                                        <option class="menuitem" value="countryLC">&nbsp;&nbsp;&nbsp;St. Lucia</option>
+                                        <option class="menuitem" value="countryPM">&nbsp;&nbsp;&nbsp;St. Pierre &amp; Miquelon</option>
+                                        <option class="menuitem" value="countryVC">&nbsp;&nbsp;&nbsp;St. Vincent &amp; Grenadines</option>
+                                        <option class="menuitem" value="countrySD">&nbsp;&nbsp;&nbsp;Sudan</option>
+                                        <option class="menuitem" value="countrySR">&nbsp;&nbsp;&nbsp;Suriname</option>
+                                        <option class="menuitem" value="countrySJ">&nbsp;&nbsp;&nbsp;Svalbard &amp; Jan Mayen</option>
+                                        <option class="menuitem" value="countrySE">&nbsp;&nbsp;&nbsp;Sweden</option>
+                                        <option class="menuitem" value="countryCH">&nbsp;&nbsp;&nbsp;Switzerland</option>
+                                        <option class="menuitem" value="countrySY">&nbsp;&nbsp;&nbsp;Syria</option>
+                                        <option class="menuitem" value="countryTW">&nbsp;&nbsp;&nbsp;Taiwan</option>
+                                        <option class="menuitem" value="countryTJ">&nbsp;&nbsp;&nbsp;Tajikistan</option>
+                                        <option class="menuitem" value="countryTZ">&nbsp;&nbsp;&nbsp;Tanzania</option>
+                                        <option class="menuitem" value="countryTH">&nbsp;&nbsp;&nbsp;Thailand</option>
+                                        <option class="menuitem" value="countryTG">&nbsp;&nbsp;&nbsp;Togo</option>
+                                        <option class="menuitem" value="countryTK">&nbsp;&nbsp;&nbsp;Tokelau</option>
+                                        <option class="menuitem" value="countryTO">&nbsp;&nbsp;&nbsp;Tonga</option>
+                                        <option class="menuitem" value="countryTT">&nbsp;&nbsp;&nbsp;Trinidad &amp; Tobago</option>
+                                        <option class="menuitem" value="countryTN">&nbsp;&nbsp;&nbsp;Tunisia</option>
+                                        <option class="menuitem" value="countryTR">&nbsp;&nbsp;&nbsp;Turkey</option>
+                                        <option class="menuitem" value="countryTM">&nbsp;&nbsp;&nbsp;Turkmenistan</option>
+                                        <option class="menuitem" value="countryTC">&nbsp;&nbsp;&nbsp;Turks &amp; Caicos Islands</option>
+                                        <option class="menuitem" value="countryTV">&nbsp;&nbsp;&nbsp;Tuvalu</option>
+                                        <option class="menuitem" value="countryUM">&nbsp;&nbsp;&nbsp;U.S. Outlying Islands</option>
+                                        <option class="menuitem" value="countryVI">&nbsp;&nbsp;&nbsp;U.S. Virgin Islands</option>
+                                        <option class="menuitem" value="countryUG">&nbsp;&nbsp;&nbsp;Uganda</option>
+                                        <option class="menuitem" value="countryUA">&nbsp;&nbsp;&nbsp;Ukraine</option>
+                                        <option class="menuitem" value="countryAE">&nbsp;&nbsp;&nbsp;United Arab Emirates</option>
+                                        <option class="menuitem" value="countryGB">&nbsp;&nbsp;&nbsp;United Kingdom</option>
+                                        <option class="menuitem" value="countryUS">&nbsp;&nbsp;&nbsp;United States</option>
+                                        <option class="menuitem" value="countryUY">&nbsp;&nbsp;&nbsp;Uruguay</option>
+                                        <option class="menuitem" value="countryUZ">&nbsp;&nbsp;&nbsp;Uzbekistan</option>
+                                        <option class="menuitem" value="countryVU">&nbsp;&nbsp;&nbsp;Vanuatu</option>
+                                        <option class="menuitem" value="countryVA">&nbsp;&nbsp;&nbsp;Vatican City</option>
+                                        <option class="menuitem" value="countryVE">&nbsp;&nbsp;&nbsp;Venezuela</option>
+                                        <option class="menuitem" value="countryVN">&nbsp;&nbsp;&nbsp;Vietnam</option>
+                                        <option class="menuitem" value="countryWF">&nbsp;&nbsp;&nbsp;Wallis &amp; Futuna</option>
+                                        <option class="menuitem" value="countryEH">&nbsp;&nbsp;&nbsp;Western Sahara</option>
+                                        <option class="menuitem" value="countryYE">&nbsp;&nbsp;&nbsp;Yemen</option>
+                                        <option class="menuitem" value="countryZM">&nbsp;&nbsp;&nbsp;Zambia</option>
+                                        <option class="menuitem" value="countryZW">&nbsp;&nbsp;&nbsp;Zimbabwe</option>   
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="thirdColumn">
+                            <div class="generalInsc"><span>Find pages published in a particular region.</span></div>
+                        </div>
+
+                    </div>
+
+                    <div class="Line">
+                        <div class="firstColumn">
+                            <div class="generalInsc">
+                                <label for="sel3">last update:</label>
+                            </div>
+                        </div>
+
+                        <div class="secondColumn">
+                            <div style="position:relative"><input id="as_qdr_input" name="as_qdr" value="all" type="hidden">
+                                <div class="goog-select gStyle " id="lr_button" style="height: 29px;">
+                                    <select id="dropList" class="menu cleanDec jfk-scrollbar" id="sel3" name="as_qdr"style="margin: 0; padding: 0; " >
+                        
+                                        <option class="menuitem" value="all">&nbsp;&nbsp;&nbsp;anytime</option>
+                                        <option class="menuitem" value="d">&nbsp;&nbsp;&nbsp;past 24 hours</option>
+                                        <option class="menuitem" value="w">&nbsp;&nbsp;&nbsp;past week</option>
+                                        <option class="menuitem" value="m">&nbsp;&nbsp;&nbsp;past month</option>
+                                        <option class="menuitem" value="y">&nbsp;&nbsp;&nbsp;past year</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="thirdColumn">
+                            <div class="generalInsc"><span>Find pages updated within the time that you specify.</span></div>
+                        </div>
+
+                    </div>
+
+                    <div class="Line" style="width: 100%;">
+                        <div class="firstColumn" >
+                            <div class="generalInsc">
+                                <label for="in6">site or domain:</label>
+                            </div>
+                        </div>
+                        <div class="secondColumn" style="margin-left: 4px;" >
+                            <div class="d1">
+                                <input type="text" value="" id="in6" class="inputStyle" name="as_sitesearch">
+                            </div>
+
+                        </div>
+
+                        <div class="thirdColumn">
+                            <div class="generalInsc">Search one site (like <span class="BFlQMb">wikipedia.org</span> ) or
+                                limit your results to a domain like <span class="BFlQMb">.edu</span>, <span
+                                    class="BFlQMb">.org</span> or <span class="BFlQMb">.gov</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="Line">
+                        <div class="firstColumn">
+                            <div class="generalInsc">
+                                <label for="sel4">terms appearing:</label>
+                            </div>
+                        </div>
+
+                        <div class="secondColumn">
+                            <div style="position:relative"><input value="any" id="as_occt_input" name="as_occt" type="hidden">
+                                <div class="goog-select gStyle " id="lr_button" style="height: 29px;">
+                                    <select id="dropList" class="menu cleanDec jfk-scrollbar" id="sel4" style="margin: 0; padding: 0; " >
+                        
+                                        <option class="menuitem" value="any">&nbsp;&nbsp;&nbsp;anywhere in the page</option>
+                                        <option class="menuitem" value="title">&nbsp;&nbsp;&nbsp;in the title of the page</option>
+                                        <option class="menuitem" value="body">&nbsp;&nbsp;&nbsp;in the text of the page</option>
+                                        <option class="menuitem" value="url">&nbsp;&nbsp;&nbsp;in the URL of the page</option>
+                                        <option class="menuitem" value="links">&nbsp;&nbsp;&nbsp;in links to the page</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="thirdColumn">
+                            <div class="generalInsc">Search for terms in the whole page, page title or web address, or links
+                                to the page you're looking for.</div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="Line">
+                        <div class="firstColumn">
+                            <div class="generalInsc">
+                                <label for="sel5"><a href="https://support.google.com/websearch?p=adv_safesearch&amp;hl=en">SafeSearch</a>:</label>
+                            </div>
+                        </div>
+
+                        <div class="secondColumn">
+                            <div style="position:relative"><input value="images" id="as_safesearch_input" name="safe" type="hidden">
+                                <div class="goog-select gStyle " id="lr_button" style="height: 29px;">
+                                    <select id="dropList" class="menu cleanDec jfk-scrollbar" id="sel5" name="safe" style="margin: 0; padding: 0; " >
+                        
+                                        <option class="menuitem" value="images">&nbsp;&nbsp;&nbsp;Show explicit results</option>
+                                        <option class="menuitem" value="active">&nbsp;&nbsp;&nbsp;Hide explicit results</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="thirdColumn">
+                            <div class="generalInsc">Tell <a
+                                href="https://support.google.com/websearch?p=adv_safesearch&amp;hl=en">SafeSearch</a>
+                            whether to filter sexually explicit content.</div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="Line">
+                        <div class="firstColumn">
+                            <div class="generalInsc">
+                                <label for="sel6">file type:</label>
+                            </div>
+                        </div>
+
+                        <div class="secondColumn">
+                            <div style="position:relative"><input value="" id="sel6" name="as_filetype" type="hidden">
+                                <div class="goog-select gStyle " id="lr_button" style="height: 29px;">
+                                    <select id="dropList" class="menu cleanDec jfk-scrollbar" id="as_filetype_menu" name="as_filetype" style="margin: 0; padding: 0; " >
+                        
+                                        <option class="menuitem" value="">&nbsp;&nbsp;&nbsp;any format</option>
+                                        <option class="menuitem" value="pdf">&nbsp;&nbsp;&nbsp;Adobe Acrobat PDF (.pdf)</option>
+                                        <option class="menuitem" value="ps">&nbsp;&nbsp;&nbsp;Adobe Postscript (.ps)</option>
+                                        <option class="menuitem" value="dwf">&nbsp;&nbsp;&nbsp;Autodesk DWF (.dwf)</option>
+                                        <option class="menuitem" value="kml">&nbsp;&nbsp;&nbsp;Google Earth KML (.kml)</option>
+                                        <option class="menuitem" value="kmz">&nbsp;&nbsp;&nbsp;Google Earth KMZ (.kmz)</option>
+                                        <option class="menuitem" value="xls">&nbsp;&nbsp;&nbsp;Microsoft Excel (.xls)</option>
+                                        <option class="menuitem" value="ppt">&nbsp;&nbsp;&nbsp;Microsoft PowerPoint (.ppt)</option>
+                                        <option class="menuitem" value="doc">&nbsp;&nbsp;&nbsp;Microsoft Word (.doc)</option>
+                                        <option class="menuitem" value="rtf">&nbsp;&nbsp;&nbsp;Rich Text Format (.rtf)</option>
+                                        <option class="menuitem" value="swf">&nbsp;&nbsp;&nbsp;Shockwave Flash (.swf)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="thirdColumn">
+                            <div class="generalInsc">Find pages in the format that you prefer.</div>
+                        </div>
+
+                    </div>
+
+                    <div class="Line" >
+                        <div class="firstColumn">
+                            <div class="generalInsc">
+                                <label for="sel7"><a
+                                    href="https://support.google.com/websearch?p=ws_images_usagerights&amp;hl=en">usage
+                                    rights</a>:</label>
+                            </div>
+                        </div>
+
+                        <div class="secondColumn">
+                            <div style="position:relative"><input value="" id="as_rights_input" data-name="sur" data-tbs="true" type="hidden">
+                                <div class="goog-select gStyle " id="lr_button" style="height: 29px;">
+                                    <select id="dropList" class="menu cleanDec jfk-scrollbar" id="sel7" name="sur" style="margin: 0; padding: 0; " >
+                        
+                                        <option class="menuitem" value="">&nbsp;&nbsp;&nbsp;not filtered by licence</option>
+                                        <option class="menuitem" value="f">&nbsp;&nbsp;&nbsp;free to use or share</option>
+                                        <option class="menuitem" value="fc">&nbsp;&nbsp;&nbsp;free to use or share, even commercially
+                                        </option>
+                                        <option class="menuitem" value="fm">&nbsp;&nbsp;&nbsp;free to use share or modify</option>
+                                        <option class="menuitem" value="fmc">&nbsp;&nbsp;&nbsp;free to use, share or modify, even
+                                            commercially</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="thirdColumn">
+                            <div class="generalInsc">Find pages that you are free to use yourself.</div>
+                        </div>
+
+                    </div>
+
+                    <div class="Line" style="width: 100%;">
+                        <div class="firstColumn">
+                            
+                        </div>
+
+                        <div class="secondColumn" style="margin-left: 20px;">
+                            <div style="text-align: right;" >
+                                <input id="CIGjud" name="tbs" type="hidden" value="">
+                                <input class="buttonchr buttondeco lowerbutton"
+                                style="-webkit-user-select:none;user-select:none;line-height:100%;height:30px;min-width:120px;"
+                                value="Advanced Search" type="submit">
+                                
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="Line"></div>
+
+                    <div style="margin: 18px 0; clear: both; border-top: 1px solid #ebebeb"></div>
+
+
+
+                    <div style="clear:both;font-size:13px;line-height:18px;margin-bottom:90px">
+                        <div class="line1col1">
+                            <div class="generalInsc"><span>You can also...</span></div>
+                        </div>
+                        <div style="clear:both"><a
+                                href="https://support.google.com/websearch?p=adv_pages_similar&amp;hl=en">Find pages that are
+                                similar to a URL</a></div>
+                        <div><a href="https://support.google.com/websearch?p=adv_pages_visited&amp;hl=en">Search pages that
+                                you've visited</a></div>
+                        <div><a href="https://support.google.com/websearch?p=adv_operators&amp;hl=en">Use operators in the
+                                search box</a></div>
+                        <div><a href="/preferences?hl=en-GH">Customise your search settings</a></div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </form>
+
+            </div>
+
+
+
+
+
+        </div>
+        <div></div>
+    </div>
+
+</body>
+
+</html>

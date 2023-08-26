@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>
+        Image Filter
+    </title>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('#output').style.display = 'none';
+
+
+
+            document.querySelectorAll('button').forEach(button => {
+
+                button.onclick = function(event) {
+                    let but = event.target
+                    but.style.animationPlayState = 'running';
+                    console.log(event.target)
+
+                    if (but.classList.contains('blur')) {
+                        document.querySelector('#output').style.filter = 'blur(1px)'
+                        console.log(document.querySelector('img'))
+                    } else if (but.classList.contains('gray')) {
+                        document.querySelector('#output').style.filter = 'grayscale(100%)'
+                    } else if (but.classList.contains('sepia')) {
+                        document.querySelector('#output').style.filter = 'sepia(100%)'
+                    } else {
+                        document.querySelector('#output').style.filter = 'saturate(200%)'
+
+                    }
+
+
+                }
+            })
+
+
+            var changeable = document.querySelector('#changeable')
+
+            document.querySelector('input').addEventListener('change', function(files) {
+                document.querySelector('#output').style.display = 'block';
+                document.querySelector('#allbuttons').style.display = 'block';
+
+
+
+                changeable.innerHTML = files.target.value.split('\\').pop()
+
+                var outimg = document.getElementById('output');
+
+                outimg.src = URL.createObjectURL(event.target.files[0]);
+                outimg.style.filter = 'initial';
+            })
+
+
+
+
+
+
+
+        })
+    </script>
+
+    <style>
+        #allbuttons {
+            margin: auto;
+            width: fit-content;
+            display: none;
+        }
+        
+        input[type="file"] {
+            display: none;
+        }
+        
+        #container {
+            width: 100%;
+        }
+        
+        #fileup {
+            border: 1px solid rgb(206, 206, 206);
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+        
+        #image {
+            position: relative;
+            left: 30%;
+            margin-top: 10px;
+            width: 40%;
+            height: 400px;
+            border: 1px solid rgb(206, 206, 206);
+        }
+        
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        #chy {
+            width: fit-content;
+            margin: auto;
+        }
+        
+        button {
+            margin-right: 10px;
+            padding: 10px;
+            outline: 0;
+            border: 1px solid;
+            border-radius: 12px;
+        }
+        
+        button:hover {
+            border-color: #0062cc;
+        }
+        
+        @keyframes selected {
+            0% {
+                border-color: #80bdff;
+                outline: 0;
+                box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
+            }
+            100% {
+                border-color: #0062cc;
+                outline: 0;
+                box-shadow: 0 0 0 0;
+            }
+        }
+        
+        button:focus {
+            animation-name: selected;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        
+        .nav {
+            color: #F8F7FA;
+            overflow: hidden;
+            width: 100%;
+            height: 50px;
+            padding: 0px;
+            border: 1px solid rgb(206, 206, 206);
+            margin-bottom: 10px;
+            background-color: #563D7C;
+        }
+        
+        #titletext {
+            width: fit-content;
+            margin: auto;
+            font-size: x-large;
+            padding: 10px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-weight: 400;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+
+        <p id="titletext">Filter All Images Here</p>
+    </div>
+    <div id="container">
+
+
+
+        <div id="chy">
+            <label id="fileup">
+                <input type="file" />
+                <img src="upload.png" alt="" style="width: 18px; vertical-align: middle;"> <span id="changeable">Upload an
+                    Image</span>
+            </label>
+        </div>
+        <div id="image">
+            <img id="output" src="" alt="">
+        </div>
+
+        <div id="allbuttons">
+            <p>
+                <button class="gray filter_buttons">GrayScale</button>
+                <button class="blur filter_buttons">Blur</button>
+                <button class="sepia filter_buttons">Sepia</button>
+                <button class="saturate filter_buttons">Saturate</button>
+            </p>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
