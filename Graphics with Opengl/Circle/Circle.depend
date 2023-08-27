@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1631061655 source:c:\users\kwadw\documents\graphics with opengl\circle\main.cpp
+	<windows.h>
+	<GL/glut.h>
+	<GL/glu.h>
+	<GL/gl.h>
+	<math.h>
+

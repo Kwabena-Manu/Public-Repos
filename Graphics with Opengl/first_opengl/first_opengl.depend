@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1629654238 source:c:\users\kwadw\documents\graphics with opengl\first_opengl\main.cpp
+	<windows.h>
+	<GL/glu.h>
+	<GL/glut.h>
+

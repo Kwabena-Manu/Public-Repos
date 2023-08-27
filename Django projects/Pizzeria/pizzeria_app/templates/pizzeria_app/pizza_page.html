@@ -1,0 +1,59 @@
+{% extends './base.html' %}
+
+{% block content %}
+
+<h1 style="text-align: center; color:rgb(255, 166, 0) ;">{{pizza.name|title}}</h1>
+<h2 style="color: rgba(204, 124, 92, 0.719); font-size: large;font-weight: bold;">Toppings</h2>
+
+<ul>
+    {% for topping in toppings %}
+        <li>{{topping}}</li>
+    {% empty %}
+        <li>There are no specified topping for this pizza</li>
+    {% endfor %}
+</ul>
+
+
+<h2 style="color: rgba(204, 124, 92, 0.719); font-size: large;font-weight: bold;">
+    Orders
+</h2>
+
+<p>Orders so far: {{num_of_orders}}</p>
+
+
+<table style="text-align: left;border: 1px solid black;">
+    <tr>
+        <th>Name of Orderer</th>
+        <th style="padding-left: 100;">Size</th>
+    </tr>
+{% for order in orders %}
+
+    <tr>
+        <td>{{order.name_of_orderer |title}}</td>
+        <td style="padding-left: 100;">{{order.size|title}}</td>
+    </tr>
+    {% empty %}
+    <table>
+        <tr colspan="2">
+            <td>There hasn't been any orders of <b>{{pizza.name|title}}</b> yet</td>
+        </tr>
+    </table>
+        
+    {% endfor %}
+</table>
+
+
+
+{% comment %} <ul>
+    {% for order in orders %}
+        <li> {{order.name_of_orderer|title}} {{order.size|title}}</li>
+    {% empty %}
+        <li>There hasn't been any orders of {{pizza.name|title}} yet</li>
+    {% endfor %}
+</ul> {% endcomment %}
+
+<br>
+
+    <p><a href=" {% url 'pizzeria_app:new_order' pizza.id %} ">Make a new order</a></p>
+
+{% endblock content %}

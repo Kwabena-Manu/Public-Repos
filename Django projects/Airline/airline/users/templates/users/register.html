@@ -1,0 +1,78 @@
+{% extends 'flights/layout.html' %}
+
+{% block page_header %}
+<h2 class="display-4">Sign Up </h2>
+{% endblock page_header %}
+
+
+
+
+
+{% block body %}
+{%if exist == 'FalseTrue' %}
+
+<div class="alert alert-danger alert-dismissable fade show" role="alert">
+    Email already exist.
+    <button class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times; </span></button>
+</div>
+
+{% elif exist == 'TrueFalse' %}
+<div class="alert alert-danger alert-dismissable">
+    Username already exist.
+    <button class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times; </span></button>
+</div>
+
+
+{%endif%}
+
+<div>
+    <form class="needs-validation" action="{% url 'users:register' %}" method="POST" name="registerform">
+
+        {% csrf_token %}
+        <div class="form-group">
+            <p>
+                <label for="usernameid">Username</label>
+                <input type="text" id="usernameid" class="form-control" name="username" placeholder="Username" required>
+            </p>
+        </div>
+        <div class="form-group">
+            <p>
+                <label for="firstnameid">Firstname</label>
+                <input type="text" id="firstnameid" class="form-control" name="firstname" placeholder="Firstname"
+                    required>
+            </p>
+        </div>
+        <div class="form-group">
+            <p>
+                <label for="lastnameid">Lastname</label>
+                <input type="text" id="lastnameid" class="form-control" name="lastname" placeholder="Lastname" required>
+            </p>
+        </div>
+        <div class="form-group">
+            <p>
+                <label for="emailid">Email</label>
+                <input type="email" class="form-control" id="emailid" name="email" placeholder="Email@email.com"
+                    required>
+            </p>
+        </div>
+        <div>
+            <div class="form-group">
+                <p>
+                    <label for="passwordid">Password</label>
+                    <input type="password" class="form-control" id="passwordid" name="password" placeholder="Password"
+                        required>
+                </p>
+            </div>
+            <div class="form-group">
+                <p>
+                    <label for="chkpassid">Confirm Password</label>
+                    <input type="password" class="form-control" name="chkpass" placeholder="Password" required>
+                </p>
+            </div>
+
+            <p>
+                <input type="submit" value="Sign up" onclick="return formchecker()">
+            </p>
+    </form>
+</div>
+{% endblock body %}

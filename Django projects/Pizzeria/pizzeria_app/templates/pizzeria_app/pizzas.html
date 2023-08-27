@@ -1,0 +1,17 @@
+{% extends './base.html' %}
+
+{% block content %}
+<h1 style="color:rgb(255, 166, 0) ;">Pizzas</h1>
+<ul>
+    {% for pizza in pizzas  %}
+        <li><a href="{% url 'pizzeria_app:pizza' pizza.id %}">{{pizza}}</a></li>
+    {% empty %}
+
+        <li> There are no defined toppings for this Pizza </li>
+
+    {% endfor %}
+
+    <p>
+    </p>
+</ul>
+    {% endblock content %}

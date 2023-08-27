@@ -1,0 +1,19 @@
+{% extends 'flights/layout.html'%}
+
+
+{% block page_header %}
+    <h1> Flights </h1>
+
+{% endblock page_header %}
+
+{% block body %}
+
+
+    
+        <ul class="list-group">
+            {% for flight in flights %}
+                <li class="list-group-item"> Flight {{flight.id}}: <a href="{% url 'flights:flight' flight.id %}"> {{flight.origin}} to {{flight.destination}} </a></li>
+            {% endfor %}
+        </ul>
+
+{% endblock body %}

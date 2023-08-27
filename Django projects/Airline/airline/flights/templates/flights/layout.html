@@ -1,0 +1,101 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" rel="javascript">
+        function formchecker() {
+            form = document.forms['registerform']
+            if (form['firstname'] == "" | form['firstname'] == null) {
+                prompt("Firstname must not be null")
+
+                return false
+            }
+
+            if (form['lastname'] == "" | form['lastname'] == null) {
+                prompt("Lastname must not be null")
+
+                return false
+            }
+
+            if (form['password'].value !== form['chkpass'].value) {
+                alert("Passwords do not match")
+                return false
+            }
+        }
+    </script>
+
+        {% bootstrap_css%}
+        {%bootstrap_javascript jquery='full' %}
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-md navbar-light mb-4" style="background-color: #afddfd;">
+
+            <a class="navbar-brand" href="{% url 'flights:homepage' %}">Condor Flights</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target ="#myNavData" aria-controls="myNavData"
+            aria-expanded="false" >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="myNavData">
+
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{% url 'flights:index' %}">Available Flights</a>
+                    </li>
+                </ul>
+
+                {% if   notflightpage is not True  and  request.user.is_authenticated%}
+                
+                <ul class="navbar-nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="btn btn-lg btn-primary" href="{% url 'flights:myflights' %}">My Flights</a>
+                    </li>
+
+                </ul>
+                {% endif %}
+                <ul class="navbar-nav ml-auto">
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item "><span class="navbar-text">Hello, {{request.user.username}}</span></li>
+                        <li class="nav-item "> 
+                            <a class="nav-link" href="{% url 'users:logout' %}">Logout</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{% url 'users:login' %}" >Login</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{% url 'users:register' %}">Register</a>
+                        </li>
+                    {% endif %}
+                    
+                </ul>
+
+            </div>
+        </nav>
+
+
+        <main role="main" class="container">
+
+            
+                <div class="pd-2 border-bottom mb-2">
+                    {% block page_header %}
+                
+                    {% endblock page_header %}
+                </div>
+                <div>
+                     {% block body %}
+                     {% endblock body %}
+                </div>
+        
+
+           
+        </main>
+        
+    </body>
+</html>

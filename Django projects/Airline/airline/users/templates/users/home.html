@@ -1,0 +1,22 @@
+{% extends 'flights/layout.html' %}
+
+{% block body %}
+    {%if request.user.first_name%}
+         <h1>Hello, {{request.user.first_name}}</h1>
+    {%else%}
+        <h1>Hello, {{request.user.username}}</h1>
+    {%endif%}
+
+    <p>
+        <ul>
+            <li>Fullname: {{request.user.first_name}} {{request.user.last_name}}</li>
+            <li>Email: {{request.user.email}}</li>
+        </ul>
+    </p>
+
+    <p>
+        <a class="btn btn-primary" href="{% url 'users:logout' %}">Log Out</a>
+        
+    </p>
+
+{% endblock body %}

@@ -1,0 +1,44 @@
+{% extends 'flights/layout.html' %}
+
+{% load bootstrap4 %}
+
+{% block page_header %}
+<h1>BOOK A FLIGHT FROM {{flight.origin|upper}} TO {{flight.destination|upper}}</h1>
+
+{% endblock page_header %}
+
+{% block body %}
+
+{% if exist is True%}
+<h2>You have already booked this flight.</h2>
+
+document.getElementById("thisForm").reset();
+{%endif%}
+<form action="{% url 'flights:book' flight.id%}" method="POST" id="thisForm">
+    
+    {%csrf_token%}
+    <input type="hidden" name="code1" value="false">
+
+    <div class="form-group">
+        <label for="flights">Flight</label>
+        <select class="form-control" name="flights">
+            
+            <option value="{{flight.id}}">{{flight}}</option>
+            
+            
+            
+        </select>
+    </div>
+
+    <input class="btn btn-primary" type="submit">
+</form>
+
+<!-- <form action="{% url 'flights:book' flight.id%}" method="POST">
+            {%csrf_token%}
+            <input type="hidden" name="code1" value="false">
+            {{form.as_p}}
+            <input type="submit" value="Book the flight">
+        </form>
+    
+
+{% endblock body %}

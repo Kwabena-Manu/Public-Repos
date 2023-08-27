@@ -1,0 +1,26 @@
+{% extends './base.html' %}
+
+{% block content %}
+
+<p>Make Your Order For {{pizza|title}}: </p>
+
+<form action=" {% url 'pizzeria_app:new_order' pizza.id %} " method="POST">
+    {% csrf_token %}
+    <div>
+         {% for each_form in form%}
+    
+        <p>
+            {{each_form.label}}: {{each_form}}
+        </p>
+    
+         {% endfor %}
+    
+    
+    </div>
+
+    <input type="submit" value="Add your Order">
+</form>
+
+{% endblock content %}
+
+

@@ -1,0 +1,48 @@
+{% extends 'flights/layout.html'%}
+
+{% load bootstrap4 %}
+
+{% block page_header %}
+<h2 class="display-3">Login</h2>
+{% endblock page_header %}
+
+{% block body %}
+{% if message and logout is null  %}
+<div class="alert alert-danger alert-dismissable fade show " role="alert">
+    {{message}}
+    <button class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% elif logout %}
+    <div class="alert alert-success alert-dismissable fade show " role="alert">
+    {{message}}
+    <button class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endif %}
+
+
+<form class="needs-validation" action="{% url 'users:login' %}" name="myForm" method="POST">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="usernameid">Username</label>
+        <input class="form-control" type="text" name="username" id="usernameid" placeholder="Username" required>
+
+    </div>
+    <div class="form-group">
+        <label for="passwordid"></label>
+        <input class="form-control" type="password" id="passwordid" name="password" placeholder="Password" required>
+
+    </div>
+
+    {% buttons%}
+    <input class="btn btn-dark" type="submit" value="Login"> <a class="btn btn-primary"
+        href="{% url 'users:register' %}"> Sign Up </a>
+    {%endbuttons%}
+
+</form>
+
+{% endblock body %}

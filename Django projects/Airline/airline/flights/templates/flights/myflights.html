@@ -1,0 +1,20 @@
+{% extends 'flights/layout.html' %}
+
+{% load bootstrap4 %}
+{% block page_header %}
+    <h1>Your Flights</h1>
+{% endblock page_header %}
+
+
+
+{% block body %}
+<ul class="list-group list-group-flush mt-5">
+    {% for flight in flights %}
+         <li class="list-group-item"><a href="{% url 'flights:flight' flight.id%}">{{flight.origin}} to {{flight.destination}}</a>
+            <a class="btn btn-primary ml-auto" href="{% url 'flights:removeflight' flight.id %}"> Remove Flight</a> 
+         </li>   
+    {%empty%}
+        <h3>You haven't booked a flight yet.</h3>
+    {% endfor %}
+</ul>
+{% endblock body %}
