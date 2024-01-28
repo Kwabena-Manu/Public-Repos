@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import logo from '../assets/images/logo.png'
 import { Link } from 'react-router-dom'
+import { ShopContext } from '../Context/ShopContext'
 
 export const Navbar = () => {
 
     const [menu, setmenu] = useState("shop")
+    const { getTotalCartItems } = useContext(ShopContext);
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary p-2">
             <div className="container-fluid">
@@ -43,7 +45,7 @@ export const Navbar = () => {
                             </span>
                         </Link>
                         <div className="nav-cart-count ">
-                            0
+                            {getTotalCartItems()}
                         </div>
 
                     </div>
