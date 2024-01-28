@@ -1,0 +1,36 @@
+@use 'custom';
+@use '../index';
+@use '../App';
+
+
+// Add Component SCSS here
+
+@use './components/Navbar';
+@use './components/Hero';
+@use './components/Item';
+@use './components/Popular';
+@use './components/Offers';
+@use './components/NewCollections';
+@use './components/NewsLetter';
+@use './components/Footer';
+@use './components/BreadCrumbs';
+@use './components/ProductDisplay';
+@use './components/DescriptionBox';
+@use './components/RelatedProducts';
+@use './components/Cartitems';
+
+
+
+
+
+// Add all variables 
+
+@use './variables/animations';
+@use './variables/mixins';
+@use './variables/typography';
+
+
+//Add Page SCSS here
+
+@use './pages/ShopCategory';
+@use './pages/LoginSignup';

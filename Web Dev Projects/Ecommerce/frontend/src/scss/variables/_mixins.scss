@@ -1,0 +1,31 @@
+@mixin item_container_layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 200px;
+
+    h1 {
+        color: #171717;
+        font-size: 50px;
+        font-weight: 600;
+    }
+
+    hr {
+        width: 200px;
+        height: 6px;
+        border-radius: 10px;
+        background-color: #252525;
+    }
+
+    &-item {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+
+}

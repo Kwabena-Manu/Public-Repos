@@ -1,0 +1,5 @@
+@use '../variables/mixins' as *;
+
+.popular {
+    @include item_container_layout;
+}

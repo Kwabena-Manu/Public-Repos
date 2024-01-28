@@ -1,0 +1,7 @@
+@use '../variables/mixins' as *;
+
+
+.new-collections {
+    @include item_container_layout;
+    margin-bottom: 100px;
+}
