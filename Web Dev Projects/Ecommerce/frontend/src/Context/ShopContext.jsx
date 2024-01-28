@@ -39,10 +39,10 @@ const ShopContextProvider = (props) => {
                 console.log(itemInfo)
                 totalAmount += itemInfo.new_price * cartItems[item];
             }
-            console.log("total is: ")
-            console.log(totalAmount)
-            return totalAmount;
         }
+        console.log("total is: ")
+        console.log(totalAmount)
+        return totalAmount;
     }
 
 
