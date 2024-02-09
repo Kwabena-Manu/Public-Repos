@@ -1,0 +1,26 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+
+@mixin navItemStyles {
+
+    text-transform: capitalize;
+}
+
+.menu {
+    // Defining gradient colors for the navbar 
+    @include gradient;
+
+    //Adding padding and colors to the navbar items
+    a,
+    button {
+        @include navItemStyles()
+    }
+
+    a {
+        display: flex;
+        align-items: center; //Centers the text in the a elements.
+        padding: 0 0.7rem;
+        color: $white;
+        font-weight: 600;
+    }
+}
